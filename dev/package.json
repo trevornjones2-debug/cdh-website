@@ -1,0 +1,12 @@
+{
+  "name": "cdh-website-styles",
+  "private": true,
+  "description": "Builds assets/site.css for the Commercial Door & Hardware website.",
+  "scripts": {
+    "build": "tailwindcss -c tailwind.config.js -i input.css -o ../assets/site.css --minify",
+    "watch": "tailwindcss -c tailwind.config.js -i input.css -o ../assets/site.css --watch"
+  },
+  "devDependencies": {
+    "tailwindcss": "3.4.17"
+  }
+}
