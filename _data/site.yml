@@ -1,0 +1,197 @@
+# All of the website's wording, contact details, projects, team and photos live in this file.
+# Edit it through Pages CMS (app.pagescms.org) or directly on GitHub. The site rebuilds itself
+# about a minute after each save. Text fields marked "markdown" accept **bold** and [links](https://...).
+
+company: Commercial Door & Hardware
+legal_name: Commercial Door & Hardware LLC
+
+contact:
+  phone: (888) 727-7020
+  phone_link: "+18887277020"
+  email: info@cdhdoor.com
+  address_line1: 1787 E Main St, Suite 6
+  address_line2: Woodland, CA 95776
+  hours: Monday to Friday, 7:00 AM to 5:00 PM PT
+
+seo_description: Commercial Door & Hardware supplies commercial doors, frames and hardware to general contractors in Sacramento, Northern California and the western US.
+
+hero:
+  headline: Commercial doors, frames and hardware for general contractors
+  intro: We supply complete Division 08 packages for projects in the Sacramento region, Northern California and the western United States. Every package is quoted from your plans, scheduled by opening and delivered in the order your job needs it.
+  image: images/township9.jpg
+
+credentials_label: DHI credentialed
+credentials:
+  - code: AHC
+    name: Architectural Hardware Consultant
+  - code: EHC
+    name: Electrified Hardware Consultant
+  - code: DHC
+    name: Door + Hardware Consultant
+  - code: DHT
+    name: Door + Hardware Technician
+  - code: DHIA
+    name: Door + Hardware Industry Associate
+
+supply:
+  title: What we supply
+  intro: Doors, frames and hardware are quoted together as one package, so nothing gets split between vendors or missed between scopes.
+  products:
+    - name: Commercial doors
+      section: Section 08 14 00
+      description: Hollow metal, architectural wood, and aluminum and glass doors for rated and non-rated openings.
+      items:
+        - Hollow metal doors
+        - Architectural wood doors
+        - Fire-rated assemblies
+        - Aluminum and glass doors
+        - Lead-lined and specialty doors
+    - name: Door frames
+      section: Section 08 12 00
+      description: Hollow metal and aluminum frames matched to the door schedule and wall conditions.
+      items:
+        - Welded and knock-down frames
+        - Aluminum frames
+        - Sidelights and transoms
+        - Borrowed lights
+        - Fire-rated frames
+    - name: Door hardware
+      section: Section 08 71 00
+      description: Finish hardware scheduled by hardware set and keyed to your requirements, including electrified hardware for access-controlled openings.
+      items:
+        - Locksets and exit devices
+        - Closers and hinges
+        - Electrified hardware
+        - Access control coordination
+        - Keying schedules
+    - name: Storefront and entrances
+      section: Section 08 41 00
+      description: Aluminum storefront doors and entrance packages for retail, mixed-use and tenant improvement work.
+      items:
+        - Aluminum storefront doors
+        - Entrance pairs and singles
+        - Pulls, pivots and closers
+        - Panic hardware
+  note: "**Division 10 specialties** are also bid and supplied with the door package: bathroom accessories, toilet compartments, fire protection specialties and lockers."
+
+process:
+  title: How we work
+  intro: Send us the invitation and the plan set. We work the takeoff, quote and delivery around your bid date.
+  steps:
+    - title: Send the bid invitation
+      text: Forward the ITB, or add us in BuildingConnected or Procore. Plans and specs are all we need to start.
+    - title: Takeoff and quote
+      text: A door-by-door takeoff against the door schedule and hardware sets, with scope questions raised early and pricing in before your deadline.
+    - title: Submittals
+      text: Product submittals, hardware schedules and keying coordination, handled by DHI-credentialed staff before anything is ordered.
+    - title: Staged delivery
+      text: Material is released in the order your job needs it. Frames arrive ahead of doors, and hardware comes keyed and labeled by opening.
+  note: "**We are a supplier only.** We don't install. Your crew or installer hangs the openings, and we make sure the right material shows up complete and on schedule."
+
+projects:
+  title: Recent projects
+  intro: Hospitality, senior living and multifamily projects we've supplied in the Sacramento region.
+  list:
+    - name: Township 9, The Hayley
+      location: Sacramento, CA
+      sector: Multifamily
+      description: Commercial doors, frames and hardware for a multi-building residential development in the River District, built by Mason Builders.
+      image: images/township9.jpg
+      link: https://www.mason-builders.com/portfolio-project/township-9/
+      link_label: View project
+    - name: Hilton Garden Inn Sacramento Airport Natomas
+      location: Sacramento, CA
+      sector: Hospitality
+      description: Doors and hardware for guestroom corridors, meeting spaces and back-of-house areas.
+      image: images/hilton.jpg
+      link: https://www.hilton.com/en/hotels/sacangi-hilton-garden-inn-sacramento-airport-natomas/
+      link_label: View hotel
+    - name: The Farmstead at Dixon
+      location: Dixon, CA
+      sector: Senior living
+      description: Doors, frames and hardware for an independent living, assisted living and memory care community.
+      image: images/farmstead.jpg
+      link: https://farmsteadatdixon.com/
+      link_label: View community
+    - name: Greenhaus Apartments
+      location: Davis, CA
+      sector: Multifamily
+      description: Interior and exterior door assemblies and hardware for an apartment community near UC Davis.
+      image: images/greenhaus.jpg
+      link: https://www.greenhausdavis.com/
+      link_label: View community
+
+markets:
+  title: Markets we serve
+  list:
+    - name: Hotels and hospitality
+      text: New construction and renovation packages, including guestroom doors, corridor and back-of-house openings, and electrified entry hardware.
+    - name: Multifamily and mixed-use
+      text: Unit entry, amenity and common-area openings at project scale, plus Division 10 accessories.
+    - name: Commercial and TI
+      text: Office build-outs, tenant improvements and ground-up commercial work across the Sacramento region.
+    - name: Retail
+      text: Storefront entrances and interior door packages for national and regional retail rollouts.
+    - name: Public and institutional
+      text: Schools, civic and institutional projects bid to full specification, including rated and specialty openings.
+  area_title: Service area
+  area_text: We're based in Woodland, California, and the Sacramento region is our home market. We supply projects across California and ship Division 08 packages throughout the western United States.
+  home_state: California
+  states:
+    - Arizona
+    - Colorado
+    - Idaho
+    - Montana
+    - Nevada
+    - New Mexico
+    - Oregon
+    - Texas
+    - Utah
+    - Washington
+    - Wyoming
+
+about:
+  title: About CDH
+  paragraphs:
+    - "Commercial Door & Hardware focuses on one scope: **Division 08 openings**. Doors, frames and hardware are all we quote, so the takeoff is read the way an installer reads it and the hardware schedule is built the way the locking plan requires."
+    - "Our leadership spent **ten years supervising door and hardware installers** before running CDH as a supply house. That shows in how we put packages together: complete openings, hardware grouped by set, and material sequenced the way the job is built."
+    - "CDH holds **five DHI credentials** covering architectural hardware consulting, electrified hardware, and door and hardware technology. When your project has access control, rated assemblies or a complicated keying schedule, the person quoting it is credentialed to get it right."
+  facts:
+    - label: Company
+      value: Commercial Door & Hardware LLC
+    - label: Office
+      value: Woodland, California
+    - label: Trade
+      value: CSI Division 08, Openings
+    - label: Find us on
+      value: Procore Construction Network, BuildingConnected
+  team_title: Our team
+  team:
+    - name: Garret Jones
+      role: President / Executive Project Manager
+    - name: Lee Baker
+      role: Leadership Team
+    - name: Kevin Wise
+      role: Project Manager
+    - name: Luke Jones
+      role: Estimator
+    - name: Trevor Jones
+      role: Project Engineer
+
+quote:
+  title: Request a quote
+  intro: Send us the project details or the BuildingConnected or Procore invitation link, and we'll take it from there.
+  # Where quote requests are delivered. After activating FormSubmit, replace the email address
+  # at the end with the random code FormSubmit gives you.
+  form_endpoint: https://formsubmit.co/ajax/garret@cdhdoor.com
+  email_subject: New quote request from the CDH website
+  packages:
+    - Doors, frames and hardware (full package)
+    - Doors and frames only
+    - Hardware only
+    - Storefront and entrances
+    - Division 10 specialties
+    - Other
+  success_message: Thanks. Your request was sent and we'll follow up within one business day.
+
+footer_text: Commercial doors, frames and hardware for general contractors in Sacramento, Northern California and the western US. Supply only.
