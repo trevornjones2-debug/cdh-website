@@ -7,6 +7,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<!-- Security policy: only this site's own files, Google Fonts, and the FormSubmit form service may load or receive data. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://formsubmit.co; form-action 'self'; base-uri 'self'; object-src 'none'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <title>{{ s.company | escape }}</title>
 <meta name="description" content="{{ s.seo_description | escape }}">
 <link rel="icon" type="image/png" href="images/logo.png">
@@ -24,7 +27,7 @@
   </div>
 </div>
 
-<header class="sticky z-40 border-b border-slate-200 bg-white/95 backdrop-blur" style="top: env(safe-area-inset-top, 0px)">
+<header class="site-header sticky z-40 border-b border-slate-200 bg-white/95 backdrop-blur">
   <div class="wrap flex items-center justify-between gap-6 py-3">
     <a href="#top" class="flex items-center gap-3" aria-label="{{ s.company | escape }} home">
       <img src="images/logo.png" alt="" class="h-10 w-auto">
