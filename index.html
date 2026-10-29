@@ -1,0 +1,263 @@
+---
+# Page layout. The wording, photos and contact details come from _data/site.yml.
+---
+{%- assign s = site.data.site -%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>{{ s.company | escape }}</title>
+<meta name="description" content="{{ s.seo_description | escape }}">
+<link rel="icon" type="image/png" href="images/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+
+<div class="bg-slate-950 text-sm text-slate-300">
+  <div class="wrap flex flex-wrap justify-end gap-x-6 gap-y-1 py-2">
+    <a class="transition-colors duration-150 hover:text-white" href="tel:{{ s.contact.phone_link }}">{{ s.contact.phone }}</a>
+    <a class="transition-colors duration-150 hover:text-white" href="mailto:{{ s.contact.email }}">{{ s.contact.email }}</a>
+  </div>
+</div>
+
+<header class="sticky z-40 border-b border-slate-200 bg-white/95 backdrop-blur" style="top: env(safe-area-inset-top, 0px)">
+  <div class="wrap flex items-center justify-between gap-6 py-3">
+    <a href="#top" class="flex items-center gap-3" aria-label="{{ s.company | escape }} home">
+      <img src="images/logo.png" alt="" class="h-10 w-auto">
+      <span class="hidden text-sm font-semibold uppercase leading-tight tracking-wide text-slate-900 min-[420px]:block">Commercial<br>Door &amp; Hardware</span>
+    </a>
+    <nav class="flex items-center gap-8" aria-label="Main">
+      <a class="hidden text-sm font-medium text-slate-600 transition-colors duration-150 hover:text-slate-900 md:inline" href="#supply">{{ s.supply.title }}</a>
+      <a class="hidden text-sm font-medium text-slate-600 transition-colors duration-150 hover:text-slate-900 md:inline" href="#process">{{ s.process.title }}</a>
+      <a class="hidden text-sm font-medium text-slate-600 transition-colors duration-150 hover:text-slate-900 md:inline" href="#projects">Projects</a>
+      <a class="hidden text-sm font-medium text-slate-600 transition-colors duration-150 hover:text-slate-900 lg:inline" href="#about">About</a>
+      <a class="btn-primary px-4 py-2 text-sm" href="#quote">{{ s.quote.title }}</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="relative isolate overflow-hidden bg-slate-900">
+    {%- if s.hero.image %}
+    <img src="{{ s.hero.image }}" alt="" class="absolute inset-0 -z-20 h-full w-full object-cover">
+    {%- endif %}
+    <div class="absolute inset-0 -z-10 bg-gradient-to-r from-slate-900 via-slate-900/95 to-slate-900/80"></div>
+    <div class="wrap py-20 md:py-28">
+      <h1 class="max-w-3xl text-4xl font-semibold tracking-tight text-white md:text-5xl md:leading-tight">{{ s.hero.headline }}</h1>
+      <p class="mt-6 max-w-2xl text-lg leading-relaxed text-slate-300">{{ s.hero.intro }}</p>
+      <div class="mt-10 flex flex-wrap gap-3">
+        <a class="btn-primary" href="#quote">{{ s.quote.title }}</a>
+        <a class="btn-ghost" href="tel:{{ s.contact.phone_link }}">Call {{ s.contact.phone }}</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="border-b border-slate-200 bg-slate-50">
+    <div class="wrap flex flex-wrap items-baseline gap-x-8 gap-y-2 py-5 text-sm">
+      <span class="font-semibold text-slate-900">{{ s.credentials_label }}</span>
+      {%- for c in s.credentials %}
+      <span class="text-slate-500"><b class="font-semibold text-slate-900">{{ c.code }}</b> {{ c.name }}</span>
+      {%- endfor %}
+    </div>
+  </div>
+
+  <section id="supply" class="py-16 md:py-24">
+    <div class="wrap">
+      <h2 class="section-title">{{ s.supply.title }}</h2>
+      <p class="section-lead">{{ s.supply.intro }}</p>
+      <div class="mt-12 grid gap-6 md:grid-cols-2">
+        {%- for p in s.supply.products %}
+        <div class="card p-6 md:p-8">
+          <p class="text-sm text-slate-500">{{ p.section }}</p>
+          <h3 class="mt-1 text-xl font-semibold text-slate-900">{{ p.name }}</h3>
+          <p class="mt-3 leading-relaxed text-slate-600">{{ p.description }}</p>
+          <ul class="ticks mt-5 grid gap-x-6 gap-y-1.5 text-sm text-slate-700 sm:grid-cols-2">
+            {%- for item in p.items %}<li>{{ item }}</li>{% endfor -%}
+          </ul>
+        </div>
+        {%- endfor %}
+      </div>
+      {%- if s.supply.note %}
+      <div class="md-text mt-6 rounded-lg bg-sky-50 px-6 py-5 leading-relaxed text-slate-700">{{ s.supply.note | markdownify }}</div>
+      {%- endif %}
+    </div>
+  </section>
+
+  <section id="process" class="bg-slate-50 py-16 md:py-24">
+    <div class="wrap">
+      <h2 class="section-title">{{ s.process.title }}</h2>
+      <p class="section-lead">{{ s.process.intro }}</p>
+      <ol class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        {%- for step in s.process.steps %}
+        <li class="card p-6">
+          <span class="grid h-8 w-8 place-items-center rounded-full bg-sky-700 text-sm font-semibold text-white">{{ forloop.index }}</span>
+          <h3 class="mt-4 text-lg font-semibold text-slate-900">{{ step.title }}</h3>
+          <p class="mt-2 text-sm leading-relaxed text-slate-600">{{ step.text }}</p>
+        </li>
+        {%- endfor %}
+      </ol>
+      {%- if s.process.note %}
+      <div class="md-text mt-10 max-w-3xl leading-relaxed text-slate-600">{{ s.process.note | markdownify }}</div>
+      {%- endif %}
+    </div>
+  </section>
+
+  <section id="projects" class="py-16 md:py-24">
+    <div class="wrap">
+      <h2 class="section-title">{{ s.projects.title }}</h2>
+      <p class="section-lead">{{ s.projects.intro }}</p>
+      <div class="mt-12 grid gap-6 md:grid-cols-2">
+        {%- for p in s.projects.list %}
+        <article class="card flex flex-col overflow-hidden">
+          <div class="media aspect-video max-w-full bg-slate-800{% unless p.image %} noimg{% endunless %}" data-place="{{ p.location | escape }}">
+            {%- if p.image %}<img src="{{ p.image }}" alt="{{ p.name | escape }}" loading="lazy" class="h-full w-full object-cover">{% endif -%}
+          </div>
+          <div class="flex flex-1 flex-col p-6">
+            <p class="text-sm text-slate-500">{{ p.location }}{% if p.sector %} · {{ p.sector }}{% endif %}</p>
+            <h3 class="mt-1 text-xl font-semibold text-slate-900">{{ p.name }}</h3>
+            <p class="mt-3 flex-1 leading-relaxed text-slate-600">{{ p.description }}</p>
+            {%- if p.link %}
+            <a class="mt-5 text-sm font-semibold text-sky-700 transition-colors duration-150 hover:text-sky-900" href="{{ p.link }}" target="_blank" rel="noopener">{{ p.link_label | default: "View project" }} &rarr;</a>
+            {%- endif %}
+          </div>
+        </article>
+        {%- endfor %}
+      </div>
+    </div>
+  </section>
+
+  <section id="markets" class="bg-slate-50 py-16 md:py-24">
+    <div class="wrap grid gap-12 lg:grid-cols-5">
+      <div class="lg:col-span-3">
+        <h2 class="section-title">{{ s.markets.title }}</h2>
+        <dl class="mt-10 divide-y divide-slate-200 border-y border-slate-200">
+          {%- for m in s.markets.list %}
+          <div class="grid gap-1 py-5 sm:grid-cols-3 sm:gap-6"><dt class="font-semibold text-slate-900">{{ m.name }}</dt><dd class="leading-relaxed text-slate-600 sm:col-span-2">{{ m.text }}</dd></div>
+          {%- endfor %}
+        </dl>
+      </div>
+      <aside class="card self-start p-6 md:p-8 lg:col-span-2">
+        <h3 class="text-lg font-semibold text-slate-900">{{ s.markets.area_title }}</h3>
+        <p class="mt-3 leading-relaxed text-slate-600">{{ s.markets.area_text }}</p>
+        <ul class="mt-6 grid grid-cols-2 gap-x-4 gap-y-2 text-sm text-slate-700 sm:grid-cols-3">
+          {%- if s.markets.home_state %}<li class="font-semibold text-sky-700">{{ s.markets.home_state }}</li>{% endif -%}
+          {%- for st in s.markets.states %}<li>{{ st }}</li>{% endfor -%}
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <section id="about" class="py-16 md:py-24">
+    <div class="wrap grid gap-12 lg:grid-cols-2">
+      <div>
+        <h2 class="section-title">{{ s.about.title }}</h2>
+        <div class="md-text mt-6 space-y-4 text-lg leading-relaxed text-slate-600">
+          {%- for para in s.about.paragraphs %}
+          {{ para | markdownify }}
+          {%- endfor %}
+        </div>
+        <dl class="mt-8 grid grid-cols-[max-content_1fr] gap-x-6 gap-y-2 text-sm">
+          {%- for f in s.about.facts %}
+          <dt class="text-slate-500">{{ f.label }}</dt><dd class="text-slate-900">{{ f.value }}</dd>
+          {%- endfor %}
+        </dl>
+      </div>
+      <div class="card self-start p-6 md:p-8">
+        <h3 class="text-lg font-semibold text-slate-900">{{ s.about.team_title }}</h3>
+        <ul class="mt-4 divide-y divide-slate-100">
+          {%- for t in s.about.team %}
+          <li class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 py-4"><span class="font-medium text-slate-900">{{ t.name }}</span><span class="text-sm text-slate-500">{{ t.role }}</span></li>
+          {%- endfor %}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="quote" class="bg-slate-50 py-16 md:py-24">
+    <div class="wrap grid gap-12 lg:grid-cols-5">
+      <div class="lg:col-span-2">
+        <h2 class="section-title">{{ s.quote.title }}</h2>
+        <p class="section-lead">{{ s.quote.intro }}</p>
+        <dl class="mt-10 space-y-6">
+          <div><dt class="text-sm text-slate-500">Phone</dt><dd class="mt-1 font-semibold"><a class="transition-colors duration-150 hover:text-sky-700" href="tel:{{ s.contact.phone_link }}">{{ s.contact.phone }}</a></dd></div>
+          <div><dt class="text-sm text-slate-500">Email</dt><dd class="mt-1 font-semibold"><a class="transition-colors duration-150 hover:text-sky-700" href="mailto:{{ s.contact.email }}">{{ s.contact.email }}</a></dd></div>
+          <div><dt class="text-sm text-slate-500">Office</dt><dd class="mt-1 font-semibold">{{ s.contact.address_line1 }}<br>{{ s.contact.address_line2 }}</dd></div>
+          <div><dt class="text-sm text-slate-500">Hours</dt><dd class="mt-1 font-semibold">{{ s.contact.hours }}</dd></div>
+        </dl>
+      </div>
+      <form id="quote-form" class="card grid gap-5 p-6 md:p-8 lg:col-span-3" novalidate
+            data-endpoint="{{ s.quote.form_endpoint | escape }}"
+            data-success="{{ s.quote.success_message | escape }}"
+            data-error="Your request didn&#8217;t send. Please email {{ s.contact.email }} or call {{ s.contact.phone }}.">
+        <input type="hidden" name="_subject" value="{{ s.quote.email_subject | escape }}">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_captcha" value="false">
+        <div class="hidden" aria-hidden="true"><label for="q-honey">Leave this empty</label><input id="q-honey" name="_honey" type="text" tabindex="-1" autocomplete="off"></div>
+        <div class="grid gap-5 sm:grid-cols-2">
+          <div><label class="field-label" for="q-company">Company</label><input class="field-input" id="q-company" name="company" type="text" autocomplete="organization" required></div>
+          <div><label class="field-label" for="q-name">Your name</label><input class="field-input" id="q-name" name="name" type="text" autocomplete="name" required></div>
+        </div>
+        <div class="grid gap-5 sm:grid-cols-2">
+          <div><label class="field-label" for="q-email">Email</label><input class="field-input" id="q-email" name="email" type="email" autocomplete="email" required></div>
+          <div><label class="field-label" for="q-phone">Phone <span class="font-normal text-slate-400">(optional)</span></label><input class="field-input" id="q-phone" name="phone" type="tel" autocomplete="tel"></div>
+        </div>
+        <div class="grid gap-5 sm:grid-cols-2">
+          <div><label class="field-label" for="q-project">Project name</label><input class="field-input" id="q-project" name="project_name" type="text" required></div>
+          <div><label class="field-label" for="q-location">Project location <span class="font-normal text-slate-400">(optional)</span></label><input class="field-input" id="q-location" name="location" type="text" placeholder="City, State"></div>
+        </div>
+        <div class="grid gap-5 sm:grid-cols-2">
+          <div><label class="field-label" for="q-bid">Bid due date <span class="font-normal text-slate-400">(optional)</span></label><input class="field-input" id="q-bid" name="bid_date" type="date"></div>
+          <div>
+            <label class="field-label" for="q-package">Package needed</label>
+            <select class="field-input" id="q-package" name="package">
+              {%- for pk in s.quote.packages %}<option>{{ pk }}</option>{% endfor -%}
+            </select>
+          </div>
+        </div>
+        <div><label class="field-label" for="q-details">Project details</label><textarea class="field-input min-h-[8rem] resize-y" id="q-details" name="details" placeholder="Approximate opening count, invitation link, where to find the plans, or anything else we should know"></textarea></div>
+        <div class="flex flex-wrap items-center gap-x-5 gap-y-3">
+          <button class="btn-primary disabled:cursor-progress disabled:opacity-60" type="submit" id="q-submit">Send request</button>
+          <p class="text-sm" id="q-status" role="status" aria-live="polite"></p>
+        </div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="bg-slate-900 text-sm text-slate-400">
+  <div class="wrap py-14">
+    <div class="grid gap-10 md:grid-cols-4">
+      <div class="md:col-span-2">
+        <img src="images/logo-white.png" alt="{{ s.company | escape }}" class="h-10 w-auto">
+        <p class="mt-4 max-w-sm leading-relaxed">{{ s.footer_text }}</p>
+      </div>
+      <div>
+        <h3 class="font-semibold text-white">Contact</h3>
+        <ul class="mt-4 space-y-2">
+          <li><a class="transition-colors duration-150 hover:text-white" href="tel:{{ s.contact.phone_link }}">{{ s.contact.phone }}</a></li>
+          <li><a class="transition-colors duration-150 hover:text-white" href="mailto:{{ s.contact.email }}">{{ s.contact.email }}</a></li>
+          <li>{{ s.contact.address_line1 }}<br>{{ s.contact.address_line2 }}</li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="font-semibold text-white">Site</h3>
+        <ul class="mt-4 space-y-2">
+          <li><a class="transition-colors duration-150 hover:text-white" href="#supply">{{ s.supply.title }}</a></li>
+          <li><a class="transition-colors duration-150 hover:text-white" href="#process">{{ s.process.title }}</a></li>
+          <li><a class="transition-colors duration-150 hover:text-white" href="#projects">Projects</a></li>
+          <li><a class="transition-colors duration-150 hover:text-white" href="#about">About</a></li>
+          <li><a class="transition-colors duration-150 hover:text-white" href="#quote">{{ s.quote.title }}</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="mt-12 border-t border-slate-800 pt-6 text-xs text-slate-500">&copy; {{ site.time | date: "%Y" }} {{ s.legal_name }}. All rights reserved.</p>
+  </div>
+</footer>
+
+<script src="assets/quote-form.js"></script>
+</body>
+</html>

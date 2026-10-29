@@ -1,0 +1,8 @@
+# GitHub Pages builds this site with Jekyll automatically on every change.
+title: Commercial Door & Hardware
+markdown: kramdown
+exclude:
+  - dev
+  - README.md
+  - .pages.yml
+  - node_modules
