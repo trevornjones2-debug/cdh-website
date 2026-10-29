@@ -15,6 +15,7 @@
 }
 
 @layer components {
+  .site-header { top: env(safe-area-inset-top, 0px); }
   .wrap {
     @apply mx-auto max-w-6xl;
     padding-left: max(1.25rem, env(safe-area-inset-left, 0px));
