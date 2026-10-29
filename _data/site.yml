@@ -181,9 +181,11 @@ about:
 quote:
   title: Request a quote
   intro: Send us the project details or the BuildingConnected or Procore invitation link, and we'll take it from there.
-  # Where quote requests are delivered. After activating FormSubmit, replace the email address
-  # at the end with the random code FormSubmit gives you.
-  form_endpoint: https://formsubmit.co/ajax/garret@cdhdoor.com
+  # Quote requests are sent through Web3Forms (web3forms.com) to the inbox on the Web3Forms account
+  # (the address you signed up with). The access key is public by design and safe to keep here.
+  # To change the receiving inbox, change it in the Web3Forms dashboard, not here.
+  form_endpoint: https://api.web3forms.com/submit
+  form_access_key: d48b628d-e12b-43b3-ab5d-f992c6302e25
   email_subject: New quote request from the CDH website
   packages:
     - Doors, frames and hardware (full package)
