@@ -44,12 +44,13 @@
 </header>
 
 <main id="top">
-  <section class="relative isolate overflow-hidden bg-slate-900">
+  <section class="relative overflow-hidden bg-slate-900">
+    {%- comment %} Layers stack in source order: photo, then dark tint, then text. No z-index needed. {% endcomment %}
     {%- if s.hero.image %}
-    <img src="{{ s.hero.image }}" alt="" class="absolute inset-0 -z-20 h-full w-full object-cover">
+    <img src="{{ s.hero.image }}" alt="" class="absolute inset-0 h-full w-full object-cover">
     {%- endif %}
-    <div class="absolute inset-0 -z-10 bg-gradient-to-r from-slate-900 via-slate-900/95 to-slate-900/80"></div>
-    <div class="wrap py-20 md:py-28">
+    <div class="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/95 to-slate-900/80"></div>
+    <div class="wrap relative py-20 md:py-28">
       <h1 class="max-w-3xl text-4xl font-semibold tracking-tight text-white md:text-5xl md:leading-tight">{{ s.hero.headline }}</h1>
       <p class="mt-6 max-w-2xl text-lg leading-relaxed text-slate-300">{{ s.hero.intro }}</p>
       <div class="mt-10 flex flex-wrap gap-3">
