@@ -7,8 +7,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<!-- Security policy: only this site's own files, Google Fonts, and the FormSubmit form service may load or receive data. -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://formsubmit.co; form-action 'self'; base-uri 'self'; object-src 'none'; upgrade-insecure-requests">
+<!-- Security policy: only this site's own files, Google Fonts, and the Web3Forms form service may load or receive data. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://api.web3forms.com; form-action 'self'; base-uri 'self'; object-src 'none'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>{{ s.company | escape }}</title>
 <meta name="description" content="{{ s.seo_description | escape }}">
@@ -194,12 +194,12 @@
       </div>
       <form id="quote-form" class="card grid gap-5 p-6 md:p-8 lg:col-span-3" novalidate
             data-endpoint="{{ s.quote.form_endpoint | escape }}"
+            data-access-key="{{ s.quote.form_access_key | escape }}"
             data-success="{{ s.quote.success_message | escape }}"
             data-error="Your request didn&#8217;t send. Please email {{ s.contact.email }} or call {{ s.contact.phone }}.">
-        <input type="hidden" name="_subject" value="{{ s.quote.email_subject | escape }}">
-        <input type="hidden" name="_template" value="table">
-        <input type="hidden" name="_captcha" value="false">
-        <div class="hidden" aria-hidden="true"><label for="q-honey">Leave this empty</label><input id="q-honey" name="_honey" type="text" tabindex="-1" autocomplete="off"></div>
+        <input type="hidden" name="subject" value="{{ s.quote.email_subject | escape }}">
+        <input type="hidden" name="from_name" value="{{ s.company | escape }} website">
+        <div class="hidden" aria-hidden="true"><label for="q-botcheck">Leave this unchecked</label><input id="q-botcheck" name="botcheck" type="checkbox" tabindex="-1" autocomplete="off"></div>
         <div class="grid gap-5 sm:grid-cols-2">
           <div><label class="field-label" for="q-company">Company</label><input class="field-input" id="q-company" name="company" type="text" autocomplete="organization" required></div>
           <div><label class="field-label" for="q-name">Your name</label><input class="field-input" id="q-name" name="name" type="text" autocomplete="name" required></div>

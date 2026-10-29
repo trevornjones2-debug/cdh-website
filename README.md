@@ -14,20 +14,19 @@ All of the wording, photos, projects, team members and contact details live in o
 Tips:
 - Photos look best in a 16:9 shape (for example 1280 × 720). Uploads go into the `images` folder.
 - In fields that say "use **bold** for bold", wrap words in two asterisks to make them bold.
-- To change where quote requests are emailed, edit **Quote request form → Form delivery address**.
+- To change where quote requests are emailed, change the inbox in the Web3Forms dashboard (app.web3forms.com).
 
 You can also edit `_data/site.yml` directly on github.com with the pencil icon.
 
 ## Quote form
 
-The form sends requests through [FormSubmit](https://formsubmit.co) to the address in
-`quote.form_endpoint`, currently `https://formsubmit.co/ajax/garret@cdhdoor.com`.
+The form sends requests through [Web3Forms](https://web3forms.com) using the access key in
+`quote.form_access_key`. Requests are emailed to the inbox on the Web3Forms account
+(the address used to sign up). The access key is designed to be public, so no email address appears in the page.
 
-- The first request sent from the live site triggers an **Activate Form** email to that address.
-  Click the link once; requests after that are delivered.
-- After activating, FormSubmit gives you a random code. Replace the email address at the end of
-  `form_endpoint` with that code so the address no longer appears in the page source.
-- The form only works on the live website. It cannot send from a file opened on your computer.
+- To change which inbox receives requests, sign in at app.web3forms.com and change it there.
+- The free plan covers 250 requests a month.
+- A hidden "botcheck" box catches simple spam bots; requests with it ticked are ignored.
 
 ## Files
 

@@ -137,7 +137,8 @@ content:
         fields:
           - { name: title, label: Section title, type: string }
           - { name: intro, label: Intro text, type: text }
-          - { name: form_endpoint, label: "Form delivery address (FormSubmit link)", type: string }
+          - { name: form_endpoint, label: "Form service address (Web3Forms)", type: string }
+          - { name: form_access_key, label: "Web3Forms access key", type: string }
           - { name: email_subject, label: Email subject for requests, type: string }
           - { name: packages, label: Package choices, type: string, list: true }
           - { name: success_message, label: Message after sending, type: text }
